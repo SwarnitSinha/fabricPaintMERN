@@ -50,7 +50,7 @@ function Register({user,setUser}) {
 				alert(result.data.message);
 			}
 			else{
-				alert("You have successfully registerd. Now Sign In and verify email")
+				alert("You have successfully registerd. Now Sign In")
 				setLogin(true);
 			}
 		}

@@ -1,9 +1,9 @@
-const nodeMailer = require('nodemailer');
 const express = require('express');
 const app = express();
+
 const server = require('http').createServer(app);
-const cors = require('cors');
-const mailService = require('./mailService')
+const cors = require('cors')
+
 const User = require('./config/model/user')
 require(`dotenv`).config();
 
@@ -19,9 +19,17 @@ const io = require('socket.io')(server,{
       }
 });
 
+
+
 const users = {};
 
 app.use(express.json());
+
+app.get("/",(req,res)=>{
+    res.json({
+        message:"Welcome to Page"
+    })
+})
 
 app.post("/api/signIn", async (req,res)=>{
     const user = await User.findOne({
@@ -97,24 +105,9 @@ app.post("/api/signUp",async (req,res)=>{
     
 });
 
+app.listen(5000,()=>{
+    console.log("server is listening in 5000..")
+})
 
 
-io.on("connection", (socket) => {
-    
-    socket.on('new-user-joined',(userName)=>{
-        
-        console.log("new user joined ", userName);
-        users[socket.id] = userName;
-        socket.broadcast.emit("user-joined",userName);
-
-    });
-
-    socket.on('chat', (message)=>{
-        console.log(message);
-        io.emit("chat",message);
-    })
-});
-
-server.listen(5000,()=>{
-    console.log("server is listening in 5000...")
-});
+module.exports = app;
