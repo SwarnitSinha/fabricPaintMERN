@@ -1,0 +1,29 @@
+.homepage{
+  background-color: #D4F6CC ;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  justify-content: center;
+}
+.tools{
+  background-color: #1F4690;
+  width: 200px;
+  height: 600px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  border-radius: 6px;
+  margin: 0px 20px;
+
+}
+.myCanvas{
+  margin: 40px 30px;
+  width: 800px;
+  height: 600px;
+  background-color: white;
+  /* border: 1px solid black; */
+  box-shadow:2px 2px 2px 2px rgba(0, 0, 0, 0.2)
+}
