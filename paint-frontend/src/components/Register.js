@@ -8,7 +8,7 @@ import axios from 'axios';
 
 
 
-const socket = io.connect("http://localhost:5000");
+const socket = io.connect("https://fabric-paint-mern.vercel.app/");
 
 function Register({user,setUser}) {
 
@@ -26,7 +26,7 @@ function Register({user,setUser}) {
 		// const email = email;
 		if(!email || !password) return;
 		if(login){
-			const result = await axios.post("http://localhost:5000/api/signIn",{email,password})
+			const result = await axios.post("https://fabric-paint-mern.vercel.app/api/signIn",{email,password})
 			if(!result.data.error){
 
 				const token = result.data.token;
@@ -44,7 +44,7 @@ function Register({user,setUser}) {
 		}
 		else{
 			if(!userName) return;
-			const result = await axios.post("http://localhost:5000/api/signUp",{username:userName,email,password})
+			const result = await axios.post("https://fabric-paint-mern.vercel.app/api/signUp",{username:userName,email,password})
 			console.log(result.data);
 			if(result.data.error){
 				alert(result.data.message);

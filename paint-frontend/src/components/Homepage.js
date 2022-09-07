@@ -7,7 +7,7 @@ import 'react-canvas-paint/dist/index.css'
 import Fabric from './Fabric'
 // import {nanoid} from "nanoid";
 
-const socket = io.connect("http://localhost:5000");
+const socket = io.connect("https://fabric-paint-mern.vercel.app/");
 // const userName = nanoid(4);
 
 export default function Homepage() {
